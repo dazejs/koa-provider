@@ -4,30 +4,33 @@
   "description": "use koa middleware on daze.js",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run dev",
+    "dev": "cross-env DAZE_ENV=dev DEBUG=daze-framework:* nodemon --signal SIGTERM --exec ts-node example/index.ts --source-map --preserve-symlinks",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prod": "cross-env DAZE_ENV=prod node dist/index.js"
+  },
+  "engines": {
+    "node": ">=10.15.0"
   },
   "peerDependencies": {
-    "@dazejs/framework": "^1.0.0-beta.1"
+    "@dazejs/framework": ">=3.0.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-decorators": "^7.4.4",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
-    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
-    "@babel/preset-env": "^7.5.5",
-    "babel-eslint": "^10.0.3",
-    "babel-jest": "^24.9.0",
-    "eslint": "^6.2.2",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^9.1.0",
-    "jest": "^24.9.0"
+    "@dazejs/framework": "^3.0.0",
+    "@types/koa": "^2.11.3",
+    "@types/koa-compose": "^3.2.4",
+    "@types/node": "^12.7.5",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.2.0",
+    "nodemon": "^1.18.3",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-compose": "^4.1.0"
   }
 }
